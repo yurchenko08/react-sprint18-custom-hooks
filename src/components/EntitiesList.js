@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
+import { useLoading } from './hooks/useLoading';
 
 function EntitiesList({ onEntityDetailsClick, propsToDisplay, fetchMethod }) {
-  const [entities, setEntities] = useState(null);
-
-  useEffect(() => {
-    fetchMethod().then((res) => {
-      setEntities(res);
-      console.log("Users: ", res);
-    });
-  }, [fetchMethod]);
-
+  const entities = useLoading(fetchMethod);
   return entities ? (
     <ul>
       {entities.map((entity) => (
@@ -17,7 +9,7 @@ function EntitiesList({ onEntityDetailsClick, propsToDisplay, fetchMethod }) {
           <button onClick={() => onEntityDetailsClick(entity.id)}>👀</button>
           {Object.entries(propsToDisplay).map((entry) => (
             <span key={entity[entry[0]]}>
-              {" "}
+              {' '}
               {entry[1]}: <strong>{entity[entry[0]]}</strong>
             </span>
           ))}
@@ -25,7 +17,7 @@ function EntitiesList({ onEntityDetailsClick, propsToDisplay, fetchMethod }) {
       ))}
     </ul>
   ) : (
-    <p className="center">Loading...</p>
+    <p className='center'>Loading...</p>
   );
 }
 

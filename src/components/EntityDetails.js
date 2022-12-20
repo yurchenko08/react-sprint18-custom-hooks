@@ -1,28 +1,19 @@
-import { useState, useEffect } from "react";
+import { useLoading } from './hooks/useLoading';
 
 function EntityDetails({ fetchMethod, params, propsToDisplay }) {
-  const [entity, setEntity] = useState(null);
-
-  useEffect(() => {
-    setEntity(null);
-    fetchMethod(params).then((res) => {
-      setEntity(res);
-      console.log("User: ", res);
-    });
-  }, [fetchMethod, params]);
-
+  const entity = useLoading(fetchMethod, params);
   return entity ? (
-    <div className="center">
+    <div className='center'>
       <h3>{entity.name} Details:</h3>
       {Object.entries(propsToDisplay).map((entry) => (
         <div key={entry[1]}>
-          {" "}
+          {' '}
           {entry[1]}: <strong>{entity[entry[0]]}</strong>
         </div>
       ))}
     </div>
   ) : (
-    <p className="center">Loading...</p>
+    <p className='center'>Loading...</p>
   );
 }
 
