@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EntityDetails renders correctly with data 1`] = `
+<div
+  className="center"
+>
+  <h3>
+    John
+     Details:
+  </h3>
+  <div>
+     
+    Name
+    : 
+    <strong>
+      John
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`EntityDetails renders loading without data 1`] = `
+<p
+  className="center"
+>
+  Loading...
+</p>
+`;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EntitiesList renders correctly with data 1`] = `
+<ul>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      👀
+    </button>
+    <span>
+       
+      Name
+      : 
+      <strong>
+        John
+      </strong>
+    </span>
+  </li>
+</ul>
+`;
+
+exports[`EntitiesList renders loading without data 1`] = `
+<p
+  className="center"
+>
+  Loading...
+</p>
+`;
